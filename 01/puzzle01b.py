@@ -13,11 +13,7 @@ lb.sort()
 
 sum = 0
 for item in la:
-    print(item)
     multiplier = lb.count(item)
-    print(multiplier)
     sum += item * multiplier
 
-print(la)
-print(lb)
 print(sum)

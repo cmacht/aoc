@@ -15,8 +15,5 @@ sum = 0
 for a, b in zip(la, lb):
     diff = abs(b - a)
     sum += diff
-    print(diff)
 
-print(la)
-print(lb)
 print(sum)

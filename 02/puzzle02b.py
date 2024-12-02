@@ -4,11 +4,9 @@ with open("input") as f:
     # deltas = [[int(b) - int(a) for a, b in pairwise(levels.split())] for levels in f.read().splitlines()]
     levels_list = [[int(i) for i in l.split()] for l in f.read().splitlines()]
 
-print(levels_list)
 ans = 0
 
 def is_safe(levels):
-    print(levels)
     reversion_ok = (levels==sorted(levels) or levels==sorted(levels, reverse=True))
     limit_ok = True
     deltas = [y - x for x, y in pairwise(levels)]
