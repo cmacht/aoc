@@ -1,5 +1,4 @@
 with open("input") as f:
-    # inst = [lvl.split() for lvl in f.read().splitlines()]
     inst = f.read()
 
 print(inst)
