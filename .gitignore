@@ -1,3 +1,9 @@
+# AoC - Don't share inputs
+input
+inputb
+input-training
+input-trainingb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
