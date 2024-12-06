@@ -14,11 +14,13 @@ pset = set()
 for idx, line in enumerate(grid):
     if '^' in line:
         r, c = idx, line.index('^')
+        pset.add((r,c))
         o = 'up'
 
 def is_obstacle(r, c):
-    if grid[r][c] == '#':
-        return True
+    if 0 <= r < len(grid) and 0 <= c < len(grid[0]):
+        if grid[r][c] == '#':
+            return True
 
 def turn_right():
     idx = ol.index(o)
@@ -32,38 +34,34 @@ def show_map():
         if idx == r:
             line = line[:c] + 'o' + line[c+1:]
         print(line)
-    print(pset)
+    print(len(pset))
     print('---------')
 
-# while 0 <= r < len(grid) and 0 <= c < len(grid[0]): # while in grid
-while True:
-    try:
-        if o == 'up':
-            if is_obstacle(r-1, c):
-                o = turn_right()
-            else:
-                r -= 1
-        elif o == 'right':
-            if is_obstacle(r, c+1):
-                o = turn_right()
-            else:
-                c += 1
-        elif o == 'down':
-            if is_obstacle(r+1, c):
-                o = turn_right()
-            else:
-                r += 1
-        elif o == 'left':
-            if is_obstacle(r, c-1):
-                o = turn_right()
-            else:
-                c -= 1
+while 0 <= r < len(grid) and 0 <= c < len(grid[0]): # while in grid
+    if o == 'up':
+        if is_obstacle(r-1, c):
+            o = turn_right()
+        else:
+            r -= 1
+    elif o == 'right':
+        if is_obstacle(r, c+1):
+            o = turn_right()
+        else:
+            c += 1
+    elif o == 'down':
+        if is_obstacle(r+1, c):
+            o = turn_right()
+        else:
+            r += 1
+    elif o == 'left':
+        if is_obstacle(r, c-1):
+            o = turn_right()
+        else:
+            c -= 1
 
+    if 0 <= r < len(grid) and 0 <= c < len(grid[0]):
         pset.add((r,c))
-        # show_map()
-
-    except IndexError:
-        break
+        show_map()
 
 print(len(pset))
 
