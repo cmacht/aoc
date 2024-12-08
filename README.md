@@ -3,11 +3,28 @@ https://adventofcode.com/2024
 
 ## Daily Reflections
 
-### 01 -
+### 01 - number comparison
+I only started at 6:32am but then managed to solve the problem in 8min + 4min, using
+[`zip()`](https://docs.python.org/3.3/library/functions.html)
+to iterate over two lists at the same time.
 
-### 02 - 
+### 02 - number comparison
+I remembered `itertools.pairwise` and managed to score rank 6800 on part one.
+Part two was hard for me, as I tried to get clever and work only with a list of deltas.
 
-### 03 - 
+### 03 - string, regex
+Hilariously, this was one of my more succesful days in terms of speed.
+I committed right away to a long list of conditionals, checking character-by-character resulting
+in some of [the worst code I've ever written](https://github.com/cmacht/aoc/blob/main/03/puzzle03.py).
+
+As it turns out, the regex would not have been too hard and I would have been faster,
+even if I had spent the time to look it up. I agree with the sentiment voiced on a
+[StackOverflow answer](https://stackoverflow.com/a/1098336):
+"Professional developers should be familiar with basic regex syntax."
+but do also concur with dappy's statement that "regex are a great use case for llms".
+
+Google searches for "regex" apparently also spiked in the morning.
+
 
 ### 04 - grid, transpose
 I felt confident writing an algorithm that took the grid and looked for "XMAS" line by line,
@@ -16,14 +33,15 @@ But hit a roadblock when I realised that I wasn't able to rotate the grid 45deg 
 I then copied [HyperNeutrino's] solution that searches char-wise in 8 directions instead of line-wise.
 
 ### 05 - sorting
-Last one that I managed to complete in the morning. Instructions seemed convoluted at first.
+Last one that I managed to complete in the morning. (edit: or so I thought. P2 of day2 was also late.) Instructions seemed convoluted at first.
 In part two, I implemented a very stupid sorting algorithm.
 
 - [ ] Improve [sorting algorithm](https://github.com/cmacht/aoc/blob/1130b465c3e7049763365930c9d2736db9b84438/05/puzzle05b.py#L23)
 
 ### 06 - grid, pathfinding
 I was happy with my solution, as it looked clean and straight-forward and solved `input-training`.
-However, it failed with the full `input`. Thanks to [Papierkorb's](https://github.com/Papierkorb2292) suggestion
+Frustratingly, it failed with the full `input`. Thanks to [Papierkorb's](https://github.com/Papierkorb2292)
+suggestion to try and modify the test input first, 
 I figured out that this was due to an incorrect check for boundaries, which I fixed [in this commit](https://github.com/cmacht/aoc/commit/872294b51cf749d0d12b40039d347ee4dcbb08ac#diff-acf549eb5923d4256cd93615abdeaee28f71c5c61b208e8cf87df4bc4eed9deeR40).
 
 I thought long on how to best implement a "finding loops" algo: I first thought of checking the coords for closed rectangles,
@@ -51,4 +69,5 @@ Also had to utilise [`itertools.combinations`](https://docs.python.org/3/library
 - If you need indices, it's better to use `for i in range(len(grid)):` than `for idx, el in enumerate(lines):`
 - `set()` often becomes important to eliminate duplicates in answers
 - if `input-training` works but `input` doesn't, try with a modified `input-training` first (day6)
-- `map(int, num.split(','))` only works with a surrounding `list(...)` not `[...]`
+- `map(int, num.split(','))` only works with a surrounding `list(...)` not `[...]`, which returns a `map object` (day2).
+Papierkorb explained: "`map()` returned einen iterator, den man mit `list()` umwandeln kann."
