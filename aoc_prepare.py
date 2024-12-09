@@ -2,7 +2,7 @@ import os.path
 import requests
 from pathlib import Path
 
-day = 8
+day = 9
 year = 2024
 url = f'https://adventofcode.com/{year}/day/{day}/input'
 cookie = '''
