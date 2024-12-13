@@ -16,45 +16,37 @@ for i, n in enumerate(line):
     else:
         disk.extend([0] * int(n))
 
-print(disk)
 print(starter)
-fid = max(disk)
-print(f'{fid=}')
-print(len(disk))
-print(blocks)
-
-
-def find_gap_left(flen, limit):
-    glen = 0
-    for k in range(limit):
-        if disk[k] == 0:
-            glen += 1
-        else:
-            glen = 0
-        if glen >= flen:
-            return k - glen + 1
-    return None
-
-l = 0
-flen = 0
-for r in reversed(range(len(disk))):
-    if flen > 0 and disk[r] != fid:
-        idx = find_gap_left(flen, r)
-        if idx is not None:
-            for m in range(flen):
-                disk[idx + m] = fid
-                disk[r + 1 + m] = 0
-        fid -= 1
-        flen = 0
-        # print(f'{flen=}', r)
-        # print(f'{idx=}')
-    if disk[r] == fid:
-        flen += 1
-
-disk = starter + disk
 print(disk)
-ans = 0
-for i, e in enumerate(disk):
-    ans += i * e
-print(ans)
+blocks = fid - 1
 
+def find_block_right(disk, target):
+    target = [target]
+    for i in reversed(range(len(disk))):
+        if disk[i] == target[0]: target.append(i)
+        if disk[i] == 0 and len(target) > 1: break
+    return target
+
+def find_space_left(disk, space, max):
+    s = 0
+    for i in range(max):
+        if disk[i] == 0:
+            s += 1
+            if s == space: return i + 1 - space
+        else:
+            s = 0
+
+for fid in reversed(range(1, max(disk) + 1)):
+    t = find_block_right(disk, fid)
+    s = find_space_left(disk, len(t)-1, t[-1])
+    if s is None: continue
+    for w in range(s, s+len(t)-1): disk[w] = fid
+    for x in t[1:]: disk[x] = 0
+
+print(disk)
+
+ans = 0
+disk = starter + disk
+for i in range(len(disk)):
+    ans += disk[i] * i
+print(ans)

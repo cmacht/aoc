@@ -64,14 +64,18 @@ Writing down on paper what I would do with the vectors & delta vector helped.
 Also had to utilise [`itertools.combinations`](https://docs.python.org/3/library/itertools.html#itertools.combinations)
 
 ### 09 - defragmentation
-
+I think I was quite happy with my first solution, but then tried to get too clever with part two
+and only use the deltas between numbers, which turned out to be more difficult than just going through
+the list. I left this one for 4 days (also had a pretty bad cold) and then solved it quite concisely
+once I felt better.
 
 ### 10 - grid, pathfinding
 Not as easy as I thought: I tried to solve the search recursively but couldn't and then accidentally messed
-up my input. I used BFS, and went back to a resource for pathfinding I had found last year,
-wasn't needed.
-https://www.redblobgames.com/pathfinding/grids/graphs.html
-https://www.redblobgames.com/pathfinding/a-star/introduction.html
+up my input. I used BFS, and went back to a [resource for pathfinding](https://www.redblobgames.com/pathfinding/grids/graphs.html)
+I had found last year, wasn't needed. Seeing [HyperNeutrino's](https://youtu.be/layyhtQQuM0?t=136) implementation
+proved to be much more clear.
+
+Amazingly, part two required only a change of 5 characters, from `set()` to `[]`.
 
 ### 11 - big numbers?
 
