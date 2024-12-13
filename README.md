@@ -79,6 +79,7 @@ Amazingly, part two required only a change of 5 characters, from `set()` to `[]`
 
 ### 11 - big numbers?
 
+
 ## Learning
 - Use `row` and `column` instead of `x-axis` and `y-axis` because `grid[r][c]` is more intuitive/less confusing than `grid[y][x]`
 - If you need indices, it's better to use `for i in range(len(grid)):` than `for idx, el in enumerate(lines):`
