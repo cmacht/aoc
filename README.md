@@ -13,7 +13,7 @@ I remembered `itertools.pairwise` and managed to score rank 6800 on part one.
 Part two was hard for me, as I tried to get clever and work only with a list of deltas.
 
 ### 03 - string, regex
-Hilariously, this was one of my more succesful days in terms of speed.
+Hilariously, this was one of my more successful days in terms of speed.
 I committed right away to a long list of conditionals, checking character-by-character resulting
 in some of [the worst code I've ever written](https://github.com/cmacht/aoc/blob/main/03/puzzle03.py).
 
@@ -24,7 +24,6 @@ even if I had spent the time to look it up. I agree with the sentiment voiced on
 but do also concur with dappy's statement that "regex are a great use case for llms".
 
 Google searches for "regex" apparently also spiked in the morning.
-
 
 ### 04 - grid, transpose
 I felt confident writing an algorithm that took the grid and looked for "XMAS" line by line,
@@ -63,6 +62,18 @@ Once Christer pointed me to it, and it clicked for me, implementation was fine a
 Nice. Instructions were a bit obscure (what is an "antinode"?) but the examples made it clear.
 Writing down on paper what I would do with the vectors & delta vector helped.
 Also had to utilise [`itertools.combinations`](https://docs.python.org/3/library/itertools.html#itertools.combinations)
+
+### 09 - defragmentation
+
+
+### 10 - grid, pathfinding
+Not as easy as I thought: I tried to solve the search recursively but couldn't and then accidentally messed
+up my input. I used BFS, and went back to a resource for pathfinding I had found last year,
+wasn't needed.
+https://www.redblobgames.com/pathfinding/grids/graphs.html
+https://www.redblobgames.com/pathfinding/a-star/introduction.html
+
+### 11 - big numbers?
 
 ## Learning
 - Use `row` and `column` instead of `x-axis` and `y-axis` because `grid[r][c]` is more intuitive/less confusing than `grid[y][x]`

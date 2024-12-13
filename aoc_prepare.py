@@ -2,7 +2,7 @@ import os.path
 import requests
 from pathlib import Path
 
-day = 9
+day = 11
 year = 2024
 url = f'https://adventofcode.com/{year}/day/{day}/input'
 cookie = '''
@@ -15,7 +15,7 @@ r = s.get(url)
 if r.status_code != 200:
     raise ConnectionRefusedError(r.text)
 
-path = Path(f'0{day}')
+path = Path(f'{day}')
 if not os.path.exists(path):
     os.makedirs(path)
 
@@ -23,7 +23,7 @@ file = path / 'input'
 with open(file, 'a+') as f:
     f.write(r.text)
 
-files = ['input-training', f'puzzle0{day}.py']
+files = ['test', f'puzzle{day}.py']
 for file in files:
     with open(path / file, 'w') as f:
         pass
