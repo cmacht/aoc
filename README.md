@@ -77,7 +77,13 @@ proved to be much more clear.
 
 Amazingly, part two required only a change of 5 characters, from `set()` to `[]`.
 
-### 11 - big numbers?
+### 11 - large iteration, recursion, caching
+While part one was relatively easy (besides the shifting indices) part two posed a problem.
+Increasing repetitions from `25 -> 75` meant, that the length of the list grew very quickly
+and could only be calculated with appropriate caching and recursion.
+
+While having a hunch what to do, I wasn't able to implement it myself and had to again rely
+on [HyperNeutrino](https://www.youtube.com/watch?v=pVfsmQSlVOQ) with a very nice solution.
 
 
 ## Learning
